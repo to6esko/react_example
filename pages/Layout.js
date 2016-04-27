@@ -2,9 +2,9 @@ import React from 'react';
 import {Link} from 'react-router';
 
 class Layout extends React.Component{
-    
     navigate(){
-        this.props.hishtory.pushState(null,'/');
+        console.log(this.props);
+        this.props.history.pushState(null,'/');
     }
     render(){
         return(

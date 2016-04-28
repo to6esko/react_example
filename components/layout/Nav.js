@@ -33,6 +33,7 @@ class Nav extends React.Component {
                         </div>
                     </div>
                     <div className={'navbar-collapse' + navClassName} id='bs-example-navbar-collapse-1'>
+                    <h1 className="name-title">Todor page</h1>
                         <ul className='nav navbar-nav'>
                             <li className={fearuredClassName}>
                                 <IndexLink to='/' onClick={this.toggleCollapse.bind(this) }><h2 className='nav-navigation'>Featured</h2></IndexLink>

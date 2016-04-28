@@ -5,6 +5,7 @@ import Layout from './pages/Layout';
 import Featured from './pages/Featured';
 import Archives from './pages/Archives';
 import Settings from './pages/Settings';
+import Comments from './pages/Comments';
 
 
 
@@ -16,6 +17,7 @@ ReactDOM.render(
         <Route path="/" component={Layout}>
             <IndexRoute component={Featured}></IndexRoute>
             <Route path="archives(/:article)" name="archives" component={Archives}></Route>
+            <Route path="comments" name="comments" component={Comments}></Route>
             <Route path="settings" name="settings" component={Settings}></Route>
         </Route>
     </Router>,

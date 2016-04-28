@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, IndexRoute, hashHistory} from 'react-router';
-//import App from './App';
 import Layout from './pages/Layout';
 import Featured from './pages/Featured';
 import Archives from './pages/Archives';

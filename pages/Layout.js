@@ -3,12 +3,12 @@ import {Link} from 'react-router';
 import Nav from '../components/layout/Nav';
 
 class Layout extends React.Component {
-
+    /*
     navigate() {
         console.log(this.props);
         this.props.history.pushState(null, '/');
     }
-
+*/
     render() {
         //const {history} = this.props;
         //console.log(history.isActive("archives"));

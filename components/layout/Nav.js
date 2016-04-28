@@ -35,13 +35,13 @@ class Nav extends React.Component {
                     <div className={'navbar-collapse' + navClassName} id='bs-example-navbar-collapse-1'>
                         <ul className='nav navbar-nav'>
                             <li className={fearuredClassName}>
-                                <IndexLink to='/' onClick={this.toggleCollapse.bind(this) }>Featured</IndexLink>
+                                <IndexLink to='/' onClick={this.toggleCollapse.bind(this) }><h2 className='nav-navigation'>Featured</h2></IndexLink>
                             </li>
                             <li className={archivesClassName}>
-                                <Link to='archives' onClick={this.toggleCollapse.bind(this) }>Archives</Link>
+                                <Link to='archives' onClick={this.toggleCollapse.bind(this) }><h2 className='nav-navigation'>Archives</h2></Link>
                             </li>
                             <li className={settingsClassName}>
-                                <Link to='settings' onClick={this.toggleCollapse.bind(this) }>Settings</Link>
+                                <Link to='settings' onClick={this.toggleCollapse.bind(this) }><h2 className='nav-navigation'>Settings</h2></Link>
                             </li>
                         </ul>
                     </div>

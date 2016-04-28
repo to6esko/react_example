@@ -1,7 +1,38 @@
-body{
-    background: red;
-    a{
-        text-decoration: none;
+@bord: 1px solid black;
+@bac-color:rgb(208,208,208);
+@text-color:white;
+@clearfix:{
+    zoom:1;
+    & :after {
+    content:"";
+    visibility:hidden;
+    display:block;
+    height:0;
+    clear:both;
     }
-}
+};
 
+
+body,h1,h2,h3,h4,h5,h6,a,ul,li{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration:none;
+}
+ul li {
+    display:block;
+}
+.navbar{
+    background-color: @bac-color;
+}
+.nav{
+   display: inline-flex;
+   
+}
+.nav-navigation{
+    text-decoration: none;
+    padding-left:25px;
+    color:@text-color;
+    
+}

@@ -26,12 +26,11 @@ class Nav extends React.Component {
             <nav className='navbar navbar-inverse navbar-fixed-top' role='navigation'>
                 <div className='container'>
                     <div className='navbar-header'>
-                        <button type='button' className='navbar-toggle' onClick={this.toggleCollapse.bind(this) }>
-                            <span className='sr-only'>Toggle navigation</span>
+                        <div className='navbar-toggle' onClick={this.toggleCollapse.bind(this) }>
                             <span className='icon-bar'></span>
                             <span className='icon-bar'></span>
                             <span className='icon-bar'></span>
-                        </button>
+                        </div>
                     </div>
                     <div className={'navbar-collapse' + navClassName} id='bs-example-navbar-collapse-1'>
                         <ul className='nav navbar-nav'>

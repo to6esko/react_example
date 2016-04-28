@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
-import Nav from '../components/layaut/Nav';
+import Nav from '../components/layout/Nav';
 
 class Layout extends React.Component {
 
@@ -15,7 +15,7 @@ class Layout extends React.Component {
         const {location} = this.props;
         const containerStyle = { marginTop: '60px' }; //"margin-top"
         return (
-
+             /*
             <div>
                 <div className='all btn'>
                     <Link to="archives">
@@ -26,7 +26,7 @@ class Layout extends React.Component {
                     </Link>
                     <button onClick={this.navigate.bind(this) }>featured</button>
                 </div>
-
+               */
                 <div>
                       <Nav location={location}/>
                     <div className='container' style={containerStyle}>
@@ -38,7 +38,7 @@ class Layout extends React.Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            //</div>
         );
     }
 };

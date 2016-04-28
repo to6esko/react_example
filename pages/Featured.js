@@ -6,21 +6,9 @@ import Article from "../components/Article";
 class Featured extends React.Component {
     constructor() {
         super();
-        /*
-        this.state = {
-            todos: TodoStore.getAll();
-        };
-        */
     }
     
     render() {
-        const {todos}=this.state;
-        const TodoComponents=todos.map((todo)=>{
-            return <Todo key={todo.id}{...todo}/>
-        });
-        
-        
-        
         
         const Articles = [
             "Some Article",
@@ -46,12 +34,6 @@ class Featured extends React.Component {
         ];
         const randomAd = adText[Math.random() * (adText.length - 1)];
         return (
-            <div>
-            <h1>Todos</h1>
-            <ul>{TodoComponents}</ul>
-            </div>
-            
-            
             <div>
                 <div className='row'>
                     <div className='col-lg-12'>

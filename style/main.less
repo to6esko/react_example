@@ -1,6 +1,7 @@
 @bord: 1px solid black;
 @bac-color:rgb(208,208,208);
-@text-color:white;
+@text-color-white:white;
+@text-color-blue:blue;
 @clearfix:{
     zoom:1;
     & :after {
@@ -21,26 +22,36 @@ body,h1,h2,h3,h4,h5,h6,a,ul,li{
 a{
     text-decoration:none;
 }
+
 ul li {
     display:block;
 }
+
 .navbar{
     background-color: @bac-color;
+    padding:30px;
 }
 .nav{
    display: inline-flex;
-   
 }
-.navbar-collapsecollapse{
+.navbar-collapsecollapse .navbar-collapse{
     padding:30px;
     text-align:right;
+    
 }
+
 .nav-navigation{
     text-decoration: none;
     padding-left:25px;
-    color:@text-color;
+    color:@text-color-white;
     
 }
+.nav-navigation :hover{
+    color:@text-color-blue;
+}
 .name-title{
+    clear:both;
+    display:inline;
     text-align:left;
+    font-size:2.5em;
 }

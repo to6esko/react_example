@@ -7,7 +7,7 @@ class Comments extends React.Component{
             <div>
             <h1>Comments</h1>
             <hr/>
-            <CommentBox/>
+            <CommentBox url="http://localhost:3000/api/comments" pollInrerval={2000}/>
             </div>
         );
     }

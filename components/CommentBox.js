@@ -2,6 +2,7 @@
 "use strict";
 import React from 'react';
 import {render} from 'react-dom';
+import $ from 'jquery';
 
 
 class CommentBox extends React.Component {
@@ -15,9 +16,15 @@ class CommentBox extends React.Component {
             url: this.props.url,
             dataType: 'json',
             cache: false,
+             beforeSend: function (x) {
+                if (x && x.overrideMimeType) {
+                    x.overrideMimeType('application/json;charset=UTF-8' );
+                }
+            },
             success: (data) => {
                 this.setState({ data: data });
             },
+            
             error: (xhr, status, err) => {
                 console.error(this.props.url, status, err.toString());
             }
@@ -34,6 +41,11 @@ class CommentBox extends React.Component {
             dataType: 'json',
             type: 'Post',
             data: comment,
+             beforeSend: function (x) {
+                if (x && x.overrideMimeType) {
+                    x.overrideMimeType('application/json;charset=UTF-8' );
+                }
+            },
             success: (data) => {
                 this.setState({ data: data });
             },

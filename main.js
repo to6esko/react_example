@@ -5,7 +5,6 @@ import Layout from './pages/Layout';
 import Featured from './pages/Featured';
 import Archives from './pages/Archives';
 import Settings from './pages/Settings';
-//import CommentBox from './comments/commentBox';
 
 
 
@@ -18,7 +17,6 @@ ReactDOM.render(
             <IndexRoute component={Featured}></IndexRoute>
             <Route path="archives(/:article)" name="archives" component={Archives}></Route>
             <Route path="settings" name="settings" component={Settings}></Route>
-            //<Route path="commentBox" name="commentBox" component={CommentBox}></Route>
         </Route>
     </Router>,
     app);

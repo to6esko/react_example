@@ -1,15 +1,12 @@
 import React from 'react';
 import Article from "../components/Article";
-//import TodoStore from "../stores/TodoStore";
+
 
 
 class Featured extends React.Component {
-    constructor() {
-        super();
-    }
-    
+   
     render() {
-        
+       
         const Articles = [
             "Some Article",
             "Some Other Article",
@@ -25,6 +22,7 @@ class Featured extends React.Component {
             <Article key={5} title={'some title'}/>
         ];
         */
+        
         const adText = [
             "Ad spot #1",
             "Ad spot #2",
@@ -32,6 +30,7 @@ class Featured extends React.Component {
             "Ad spot #4",
             "Ad spot #5"
         ];
+        
         const randomAd = adText[Math.random() * (adText.length - 1)];
         return (
             <div>

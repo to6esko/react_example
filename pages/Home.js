@@ -3,7 +3,7 @@ import Article from "../components/Article";
 
 
 
-class Featured extends React.Component {
+class Home extends React.Component {
    
     render() {
        
@@ -47,4 +47,4 @@ class Featured extends React.Component {
     }
 };
 
-export default Featured;
+export default Home;

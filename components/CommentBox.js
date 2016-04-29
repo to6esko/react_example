@@ -3,6 +3,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import $ from 'jquery';
+import marked from 'marked';
 
 
 class CommentBox extends React.Component {
@@ -47,7 +48,12 @@ class CommentBox extends React.Component {
 
     componentDidMount() {
         this.loadCommentsFromServer();
-        setInterval(this.loadCommentsFromServer.bind(this), this.props.pollInrerval);
+        setInterval(this.loadCommentsFromServer.bind(this), this.props.pollInterval);
+    }
+    
+    componentWillUnmount(){
+        this.loadCommentsFromServer.bind(this) && clearInterval(this.props.pollInterval);
+        this.props.pollInterval=false;
     }
     render() {
         return (

@@ -13,7 +13,7 @@ class Layout extends React.Component {
         //const {history} = this.props;
         //console.log(history.isActive("archives"));
         const {location} = this.props;
-        const containerStyle = { marginTop: '60px' }; //"margin-top"
+        const containerStyle = { marginTop: '10%' }; //"margin-top"
         return (
              /*
             <div>
@@ -24,7 +24,7 @@ class Layout extends React.Component {
                     <Link to="settings">
                         <button className="btn btn-success">settings</button>
                     </Link>
-                    <button onClick={this.navigate.bind(this) }>featured</button>
+                    <button onClick={this.navigate.bind(this) }>home</button>
                 </div>
                */
                 <div>

@@ -16,11 +16,6 @@ class CommentBox extends React.Component {
             url: this.props.url,
             dataType: 'json',
             cache: false,
-             beforeSend: function (x) {
-                if (x && x.overrideMimeType) {
-                    x.overrideMimeType('application/json;charset=UTF-8' );
-                }
-            },
             success: (data) => {
                 this.setState({ data: data });
             },
@@ -41,11 +36,6 @@ class CommentBox extends React.Component {
             dataType: 'json',
             type: 'Post',
             data: comment,
-             beforeSend: function (x) {
-                if (x && x.overrideMimeType) {
-                    x.overrideMimeType('application/json;charset=UTF-8' );
-                }
-            },
             success: (data) => {
                 this.setState({ data: data });
             },
@@ -59,7 +49,6 @@ class CommentBox extends React.Component {
         this.loadCommentsFromServer();
         setInterval(this.loadCommentsFromServer.bind(this), this.props.pollInrerval);
     }
-
     render() {
         return (
             <div className='commentBox'>
@@ -69,8 +58,6 @@ class CommentBox extends React.Component {
         );
     }
 };
-
- 
 
 class CommentList extends React.Component {
     constructor() {

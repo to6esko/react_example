@@ -23,6 +23,7 @@
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-router": "^2.3.0",
-    "jquery":"*"
+    "jquery":"*",
+    "bootstrap-less":"*"
   }
 }

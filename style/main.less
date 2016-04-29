@@ -2,6 +2,9 @@
 @bac-color:rgb(208,208,208);
 @text-color-white:white;
 @text-color-blue:blue;
+@body-backg:rgb(240,240,240);
+@color-txt:rgb(85,85,85);
+
 @clearfix:{
     zoom:1;
     & :after {
@@ -27,16 +30,20 @@
         border-bottom:1px solid black;
     }
 }
-body,h1,h2,h3,h4,h5,h6,a,ul,li,nav{
+* {
     margin: 0;
     padding: 0;
+    border:0;
 }
 
 
 
 body{
-    font-family: sans-serif;
+    background:@body-backg;
+    font: 14px/20px Arial, Sans-Serif;
     font-size:1em;
+    color:@color-txt;
+    margin:0;
 }
 
 nav a{

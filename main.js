@@ -4,7 +4,6 @@ import {Router, Route, IndexRoute, hashHistory} from 'react-router';
 import Layout from './pages/Layout';
 import Home from './pages/Home';
 import Archives from './pages/Archives';
-import Settings from './pages/Settings';
 import Comments from './pages/Comments';
 
 
@@ -18,7 +17,6 @@ ReactDOM.render(
             <IndexRoute component={Home}></IndexRoute>
             <Route path="archives(/:article)" name="archives" component={Archives}></Route>
             <Route path="comments" name="comments" component={Comments}></Route>
-            <Route path="settings" name="settings" component={Settings}></Route>
         </Route>
     </Router>,
     app);

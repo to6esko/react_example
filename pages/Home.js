@@ -13,15 +13,6 @@ class Home extends React.Component {
             "Yet Another Article",
             "Still More"
         ].map((title, i) => <Article key={i} title={title}/>);
-        /*
-        const Articles=[
-            <Article key={1} title={'some title'}/>,
-            <Article key={2} title={'some title'}/>,
-            <Article key={3} title={'some title'}/>,
-            <Article key={4} title={'some title'}/>,
-            <Article key={5} title={'some title'}/>
-        ];
-        */
         
         const adText = [
             "Ad spot #1",
@@ -37,6 +28,7 @@ class Home extends React.Component {
                 <div className='row'>
                     <div className='col-lg-12'>
                         <div className='well text-center'>
+                        <hr/>
                             {randomAd}
                         </div>
                     </div>

@@ -59,7 +59,8 @@ class CommentBox extends React.Component {
     render() {
         return (
             <div className='commentBox'>
-                <CommentList data={this.state.data}/>
+                <CommentList data={this.state.data}>
+                </CommentList>
                 <CommentForm onCommentSubmit={this.handleCommentSubmit.bind(this) }/>
             </div>
         );
@@ -74,7 +75,7 @@ class CommentList extends React.Component {
     render() {
         let commentNodes = this.props.data.map((comment) => {
             return (
-                <Comment  author = { comment.author }  key = { comment.id } >
+                <Comment  author = { comment.author} avatar={comment.avatar} key = { comment.id }  >
                     { comment.text }
                 </Comment>
             );
@@ -83,6 +84,7 @@ class CommentList extends React.Component {
         return (
             <div  className = "commentList" >
                 { commentNodes }
+                
             </div>
         );
     }
@@ -94,17 +96,18 @@ class CommentList extends React.Component {
 class CommentForm extends React.Component {
     constructor() {
         super();
-        this.state = { author: '', text: '' };
+        this.state = { author: '', text: ''};
     }
     
     handleSubmit(event) {
         event.preventDefault();
         var author = this.state.author.trim();
         var text = this.state.text.trim();
+        
         if (!text || !author) {
             return;
         }
-        this.props.onCommentSubmit({ author: author, text: text });
+        this.props.onCommentSubmit({ author: author, text: text});
         this.setState({ author: '', text: '' });
     }
     
@@ -115,6 +118,7 @@ class CommentForm extends React.Component {
     handleTextChange(event) {
         this.setState({ text: event.target.value });
     }
+    
 
     render() {
         return (
@@ -124,6 +128,7 @@ class CommentForm extends React.Component {
                 <input className='your-name' type='text' placeholder='Your name' value={this.state.author} onChange={this.handleAuthorChange.bind(this) }/>
                 <textarea className='form-control' type='text' placeholder='Say something...' value={this.state.text} onChange={this.handleTextChange.bind(this) }/>
                 <input className='btn-submit' type='submit' value='Post'/>
+                
                 <button className='btn-default'>Add Photo</button>
             </form>
         );
@@ -145,6 +150,7 @@ class Comment extends React.Component {
             <div className='comment'>
                 <div className='commentAuthor'>
                     {this.props.author}
+                    <img src={this.props.avatar} alt=''/>
                 </div>
                 <span className='text-content' dangerouslySetInnerHTML={this.rawMarkup() }/>
             </div>

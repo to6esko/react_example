@@ -23,7 +23,7 @@ class Archives extends React.Component {
         return (
             <div>
                 <h1>Archives</h1>
-                <h4>article: {article}, date: {date}, filter: {filter}</h4>
+                <hr/>
                 <div className='row'>{Articles}</div>
             </div>
         );

@@ -1,3 +1,5 @@
+
+
 @bord: 1px solid black;
 @bac-color:rgb(208,208,208);
 @text-color-white:white;
@@ -16,20 +18,75 @@
     }
 };
 
-@media screen and (max-widht:500px){
-    div.module-collapse{
-        width:auto;
-        float:none;
-        margin-right:0;
+
+@media (min-width: 980px) and (min-width: 1200px) { 
+    .nav.navbar-nav{
+        display:inline-flex;
+        margin:auto;
+        padding-top:5%;
+        text-align:left;
+        padding-top: inherit;
+    }
+    .name-title{
+        text-aling:center;
+        text-decoration:none;
+        
+    }
+    
+ }
+ 
+
+@media (min-width: 768px) and (max-width: 979px) { 
+    .nav.navbar-nav{
+        display:inline-flex;
+        margin:auto;
+        padding-top:5%;
+        text-align:left;
+        padding-top: inherit;
+    }
+    .name-title{
+        text-aling:center;
+        text-decoration:none;
+        
+    }
+ }
+
+
+@media (min-width: 481px) and (max-width: 767px) { 
+    .nav.navbar-nav{
+        display:inline-flex;
+        margin:auto;
+        padding-top:5%;
+        text-align:left;
+    }
+    .name-title{
+        text-aling:center;
+        text-decoration:none;
+    }
+    
+}
+ 
+
+@media (min-width: 300px) and (max-width: 480px) {
+    .nav.navbar-nav{
+        display:inline;
+        margin:auto;
+        padding-top:5%;
+        text-align:left;
+    }
+    .name-title{
+        text-align:center;
+        text-decoration:none;
+    }
+     li {
+        padding-top:10%;
     }
 }
 
-@media screen and (max-widht:500px){
-    div.nav ul li a{
-        width:25%;
-        border-bottom:1px solid black;
-    }
-}
+
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -39,13 +96,21 @@
 
 
 body{
+    width:90%;
     background:@body-backg;
     font: 14px/20px Arial, Sans-Serif;
     font-size:1em;
     color:@color-txt;
-    margin:0;
+    margin:auto;
 }
 
+
+
+
+
+p{
+        padding-left: 3%;
+}
 nav a{
     text-decoration:none;
 }
@@ -56,33 +121,189 @@ ul li {
 
 .navbar{
     background-color: @bac-color;
-    padding:30px;
+    padding:5%;
 }
 .nav{
-   display: inline-flex;
+   
+    display:inline-flex;
 }
-.navbar-collapsecollapse .navbar-collapse{
+
+.navbar-nav{
+    padding-left:15%;
+}
+.navbar-collapsecollapse {
     padding:30px;
     
 }
-.navbar-nav{
-    padding-left:15%;
+.navbar-collapse{
+    padding:30px;
+    
 }
 .nav-navigation{
     text-decoration: none;
     padding-left:25px;
     color:@text-color-white;
-    font-size:1.5em;
+    font-size:180%;
     font-style:italic;
+    font-weight:bold;
 }
+
 .nav-navigation:hover {
-    font-size:1.5em;
+    text-decoration: none;
+    padding-left:25px;
+    font-size:180%;
         color:@text-color-blue;
+        font-size:180%;
+    font-style:italic;
+    font-weight:bold;
 }
-.name-title{
-    clear:both;
-    display:inline;
+.name-title {
+    display:initial;
     text-align:left;
-    font-size:2.5em;
+    margin:5%;
+    font-size:250%;
     font-family:fantasy;
+    text-decoration:none;
+}
+
+
+
+
+
+
+
+.col-lg-12 h1{
+    border-bottom: @bord;
+    padding: 1% 0 1% 2%;
+}
+.comment{
+  position: static;
+    border: @bord;
+    margin: 5px;
+    padding: 5px;
+    width: 80%;
+    height: auto;
+    
+    zoom:1;
+}
+
+.commentAuthor{
+     position: relative;
+    display: inline-table;
+    width: 15%;
+    min-height: 100px;
+    text-align: center;
+    padding: 1% 1% 0 2%;
+    word-break: break-word;
+    zoom: 1;
+}
+
+
+.text-content{
+           position: relative;
+    top: 33px;
+    display: inline-block;
+    width: 80%;
+    min-height: 100px;
+    margin-bottom: 4%;
+    margin-top: -2%;
+    border: @bord;
+    text-align: left;
+    padding: 1% 1% 0% 0%;
+    word-break: break-word;
+    zoom: 1;
+
+}
+.commentAuthor:after, .text-content:after{
+    content: ".";
+    visibility: hidden;
+    display: block;
+    height:0;
+    clear: both;
+}
+
+
+.commentAuthor::after{
+    display: inline-block;
+    min-height: 100px;
+    height: auto;
+    margin-right: 5%;
+    word-break: break-word;
+    zoom: 1;
+}
+
+.text-content::after{
+   position: relative; 
+    width: 80%;
+    min-height: 100px;
+    height: atuto;
+    margin-left: 10px;
+    border:@bord;
+    padding: 1% 1% 0% 0%;
+}
+.commentForm {
+  position: relative;
+  width: 32%;
+  height: 450px;
+  left: 250px;
+  right:50px;
+  bottom: 50px;
+  margin: 100px;
+  border:@bord;
+  clear: both;
+ 
+  zoom:1;
+}
+
+
+
+
+.your-name{
+  
+  position: relative;
+  top:10px;
+  left:20px;
+  width: 84%;
+  padding: 15px;
+  
+  zoom: 1;
+}
+.form-control{
+  font-size-adjust: inherit;
+  position: relative;
+  top:35px;
+  left:20px;
+  width: 88%;
+  height: 300px;
+  padding-left: 10px;
+  padding-top:15px;
+  
+  zoom:1;
+}
+.btn-submit{
+  position: relative;
+  float: right;
+  top: 80%;
+  margin-right: 10px;
+  text-align: center;
+  cursor: pointer;
+  zoom:1;
+}
+
+.btn-default{
+    position: relative;
+    float: left;
+    top: 9%;
+    margin-left: 10px;
+    text-align: center;
+    /* zoom: 1; */
+}
+
+.btn-default:hover,.btn-submit:hover{
+   cursor: pointer; 
+}
+
+span{
+    position:absolute;
+    top:13%;
 }

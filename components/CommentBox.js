@@ -68,11 +68,11 @@ class CommentBox extends React.Component {
 };
 
 class CommentList extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         
         this.state = {
-            data: this.props.data
+            data: props.data
         };
     }    
     

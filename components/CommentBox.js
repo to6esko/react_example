@@ -51,6 +51,7 @@ class CommentBox extends React.Component {
     }
     
     componentWillUnmount() {
+        //fix setInterval error 
         clearInterval(this.loadInterval);
     } 
     
@@ -70,16 +71,12 @@ class CommentList extends React.Component {
     constructor() {
         super();
         
-        this.state = {data: []};
+        this.state = {
+            data: this.props.data
+        };
     }    
     
-   deleteComment(id) {
-        if (this.state.data.length == 0) {
-            this.setState({
-            data: this.props.data
-            });
-        }
-       
+    deleteComment(id) {
         this.setState({
             data: this.state.data.filter((comment) => {
                 return comment.id != id;
@@ -88,7 +85,7 @@ class CommentList extends React.Component {
     }
     
     render() {
-        let commentNodes = this.props.data.map((comment) => {
+        let commentNodes = this.state.data.map((comment) => {
             return (
                 <div key = { comment.id }>
                 <Comment  author = { comment.author }   id={comment.id} avatar = {comment.avatar} >

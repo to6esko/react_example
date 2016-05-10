@@ -27,9 +27,9 @@ class CommentBox extends React.Component {
     }
 
     handleCommentSubmit(comment) {
-        var comments = this.state.data;
+        let comments = this.state.data;
         comment.id = Date.now();
-        var newComments = comments.concat([comment]);
+        let newComments = comments.concat([comment]);
         this.setState({ data: newComments });
         $.ajax({
             url: this.props.url,
@@ -37,7 +37,7 @@ class CommentBox extends React.Component {
             type: 'Post',
             data: comment,
             success: (data) => {
-                this.setState({ data: data });
+                this.setState({data: data});
             },
             error: (xhr, status, err) => {
                 console.error(this.props.url, status, err.toString());
@@ -60,7 +60,7 @@ class CommentBox extends React.Component {
 
         return (
             <div className='commentBox'>
-                <CommentList data={this.state.data}></CommentList>
+                <CommentList data={this.state.data.slice(0)}></CommentList>
                 <CommentForm onCommentSubmit={this.handleCommentSubmit.bind(this) }/>
             </div>
         );
@@ -72,7 +72,7 @@ class CommentList extends React.Component {
         super(props);
         
         this.state = {
-            data: props.data
+            data:props.data
         };
     }    
     

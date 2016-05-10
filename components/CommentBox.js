@@ -59,6 +59,7 @@ class CommentBox extends React.Component {
             })
         })
     }
+    
     render() {
 
         return (

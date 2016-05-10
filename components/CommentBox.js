@@ -49,24 +49,17 @@ class CommentBox extends React.Component {
         this.loadCommentsFromServer();
         this.loadInterval = setInterval(this.loadCommentsFromServer.bind(this), this.props.pollInterval);
     }
+    
     componentWillUnmount() {
         clearInterval(this.loadInterval);
-    }
-    deleteNote(id) {
-        this.setState({
-            data: this.state.data.filter((note) => {
-                return note.id != id;
-            })
-        })
-    }
+    } 
+    
     
     render() {
 
         return (
             <div className='commentBox'>
-            
-                <CommentList data={this.state.data}>
-                            </CommentList>
+                <CommentList data={this.state.data}></CommentList>
                 <CommentForm onCommentSubmit={this.handleCommentSubmit.bind(this) }/>
             </div>
         );
@@ -76,14 +69,33 @@ class CommentBox extends React.Component {
 class CommentList extends React.Component {
     constructor() {
         super();
+        
+        this.state = {data: []};
+    }    
+    
+   deleteComment(id) {
+        if (this.state.data.length == 0) {
+            this.setState({
+            data: this.props.data
+            });
+        }
+       
+        this.setState({
+            data: this.state.data.filter((comment) => {
+                return comment.id != id;
+            })
+        })
     }
-
+    
     render() {
         let commentNodes = this.props.data.map((comment) => {
             return (
-                <Comment  author = { comment.author }  key = { comment.id } id={comment.id} avatar = {comment.avatar} >
+                <div key = { comment.id }>
+                <Comment  author = { comment.author }   id={comment.id} avatar = {comment.avatar} >
                     { comment.text }
                 </Comment>
+                <button className="btn-delete" onClick={() => this.deleteComment(comment.id)}>Delete</button>
+                </div>
             );
         });
 
@@ -156,13 +168,6 @@ class Comment extends React.Component {
             { sanitize: true });
         return { __html: rawMarkup }
     }
-    deleteNote(id) {
-        this.setState({
-            data: this.props.data.filter((note) => {
-                return note.id != id;
-            })
-        })
-    }
     render() {
          
         return (
@@ -171,7 +176,7 @@ class Comment extends React.Component {
                     {this.props.author}
                 </div>
                 <img src={this.props.avatar} alt=''/>
-                <button className="btn-delete" onClick={() => this.deleteNote(this.props.id)}>Delete</button>
+                
                 <span className='text-content' dangerouslySetInnerHTML={this.rawMarkup() }/>
             </div>
         );

@@ -11,7 +11,6 @@ class CommentBox extends React.Component {
         super();
         this.state = { data: [] };
     }
-   
     loadCommentsFromServer() {
         $.ajax({
             url: this.props.url,
@@ -20,7 +19,7 @@ class CommentBox extends React.Component {
             success: (data) => {
                 this.setState({ data: data });
             },
-            
+
             error: (xhr, status, err) => {
                 console.error(this.props.url, status, err.toString());
             }
@@ -48,17 +47,25 @@ class CommentBox extends React.Component {
 
     componentDidMount() {
         this.loadCommentsFromServer();
-        this.loadInterval=setInterval(this.loadCommentsFromServer.bind(this), this.props.pollInterval);
+        this.loadInterval = setInterval(this.loadCommentsFromServer.bind(this), this.props.pollInterval);
     }
-    componentWillUnmount(){
+    componentWillUnmount() {
         clearInterval(this.loadInterval);
     }
-    
+    deleteNote(id) {
+        this.setState({
+            data: this.state.data.filter((note) => {
+                return note.id != id;
+            })
+        })
+    }
     render() {
+
         return (
             <div className='commentBox'>
+            
                 <CommentList data={this.state.data}>
-                </CommentList>
+                            </CommentList>
                 <CommentForm onCommentSubmit={this.handleCommentSubmit.bind(this) }/>
             </div>
         );
@@ -73,7 +80,7 @@ class CommentList extends React.Component {
     render() {
         let commentNodes = this.props.data.map((comment) => {
             return (
-                <Comment  author = { comment.author} avatar={comment.avatar} key = { comment.id }  >
+                <Comment  author = { comment.author }  key = { comment.id } id={comment.id} avatar = {comment.avatar} >
                     { comment.text }
                 </Comment>
             );
@@ -82,7 +89,6 @@ class CommentList extends React.Component {
         return (
             <div  className = "commentList" >
                 { commentNodes }
-                
             </div>
         );
     }
@@ -94,39 +100,39 @@ class CommentList extends React.Component {
 class CommentForm extends React.Component {
     constructor() {
         super();
-        this.state = { author: '', text: ''};
+        this.state = { author: '', text: '' };
     }
-    
+
     handleSubmit(event) {
         event.preventDefault();
         var author = this.state.author.trim();
         var text = this.state.text.trim();
-        
+
         if (!text || !author) {
             return;
         }
-        this.props.onCommentSubmit({ author: author, text: text});
+        this.props.onCommentSubmit({ author: author, text: text });
         this.setState({ author: '', text: '' });
     }
-    
+
     handleAuthorChange(event) {
-        this.setState({ author: event.target.value });
+        this.setState({ author: event.target.value, text: this.state.text });
     }
 
     handleTextChange(event) {
-        this.setState({ text: event.target.value });
+        this.setState({ author: this.state.author,  text: event.target.value });
     }
-    
+
 
     render() {
         return (
-            
+
             <form className='commentForm' onSubmit={this.handleSubmit.bind(this) } >
-                
+
                 <input className='your-name' type='text' placeholder='Your name' value={this.state.author} onChange={this.handleAuthorChange.bind(this) }/>
                 <textarea className='form-control' type='text' placeholder='Say something...' value={this.state.text} onChange={this.handleTextChange.bind(this) }/>
                 <input className='btn-submit' type='submit' value='Post'/>
-                
+
                 <button className='btn-default'>Add Photo</button>
             </form>
         );
@@ -137,25 +143,39 @@ class CommentForm extends React.Component {
 class Comment extends React.Component {
     constructor() {
         super();
+        this.state={
+            id: 0,
+            author: "",
+            avatar: ""
+        };
     }
+    
     rawMarkup() {
         var rawMarkup = marked(this.props.children.toString(),
             { sanitize: true });
         return { __html: rawMarkup }
     }
+    deleteNote(id) {
+        this.setState({
+            data: this.props.data.filter((note) => {
+                return note.id != id;
+            })
+        })
+    }
     render() {
+         
         return (
             <div className='comment'>
                 <div className='commentAuthor'>
                     {this.props.author}
-                    <img src={this.props.avatar} alt=''/>
                 </div>
+                <img src={this.props.avatar} alt=''/>
+                <button className="btn-delete" onClick={() => this.deleteNote(this.props.id)}>Delete</button>
                 <span className='text-content' dangerouslySetInnerHTML={this.rawMarkup() }/>
             </div>
         );
     }
 };
-
 
 export default CommentBox;
 

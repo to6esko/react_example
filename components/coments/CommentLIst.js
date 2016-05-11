@@ -3,7 +3,6 @@ import Comment from './Comment';
 
 
 
-
 class CommentList extends React.Component {
     constructor(props) {
         super(props);
@@ -11,10 +10,7 @@ class CommentList extends React.Component {
         this.state = {
             data: props.data
         };
-    }
-
-
-   
+    }   
 
     render() {
         let commentNodes = this.props.data.map((comment) => {

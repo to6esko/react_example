@@ -53,8 +53,19 @@ class CommentBox extends React.Component {
                 return comment.id != id;
             }
         );        
-        
         this.setState({data:comments});
+         $.ajax({
+            url: this.props.url,
+            dataType: 'json',
+            type: 'Delete',
+            data: {id: id},
+            success: (data) => {
+                this.setState({ data: data });
+            },
+            error: (xhr, status, err) => {
+                console.error(this.props.url, status, err.toString());
+            }
+        });
     }
     
     componentDidMount() {

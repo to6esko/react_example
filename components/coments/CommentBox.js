@@ -45,7 +45,18 @@ class CommentBox extends React.Component {
             }
         });
     }
-
+     deleteComment(id) {
+        let comments = this.state.data;
+        
+        comments = comments.filter(
+            (comment)=> {
+                return comment.id != id;
+            }
+        );        
+        
+        this.setState({data:comments});
+    }
+    
     componentDidMount() {
         this.loadCommentsFromServer();
         this.loadInterval = setInterval(this.loadCommentsFromServer.bind(this), this.props.pollInterval);
@@ -56,13 +67,11 @@ class CommentBox extends React.Component {
         clearInterval(this.loadInterval);
     }
 
-    
-
     render() {
 
         return (
             <div className='commentBox'>
-                <CommentList data={this.state.data} onClick={() => deleteComment() }></CommentList>
+                <CommentList data={this.state.data} onDeleteButtonClick={ (id) => {this.deleteComment(id)} }></CommentList>
                 <CommentForm onCommentSubmit={this.handleCommentSubmit.bind(this) }/>
             </div>
         );

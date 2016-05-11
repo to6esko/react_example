@@ -16,7 +16,7 @@ class CommentList extends React.Component {
         let commentNodes = this.props.data.map((comment) => {
             return (
                 <div key = { comment.id }>
-                    <Comment  author = { comment.author } id={comment.id} avatar = {comment.avatar} >
+                    <Comment  author = { comment.author } id={comment.id} avatar = {"http://localhost:3000/" + comment.avatar} >
                         { comment.text }
                     </Comment>
                     <button className="btn-delete" onClick={() => this.props.onDeleteButtonClick(comment.id) }>Delete</button>

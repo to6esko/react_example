@@ -18,6 +18,7 @@ class Nav extends React.Component {
         const {location} = this.props;
         const {collapsed} = this.state;
         const homeClassName = location.pathname === '/' ? 'active' : '';
+        const todoListClassName = location.pathname.match(/^\/todoList/) ? 'active' : '';
         const archivesClassName = location.pathname.match(/^\/archives/) ? 'active' : '';
         const commentsClassName = location.pathname.match(/^\/comments/) ? 'active' : '';
         const navClassName = collapsed ? 'collapse' : '';
@@ -38,6 +39,10 @@ class Nav extends React.Component {
                             <li className={homeClassName}>
                                 <IndexLink to='/' onClick={this.toggleCollapse.bind(this) }><h2 className='nav-navigation'>Home</h2></IndexLink>
                             </li>
+                            <li className={todoListClassName}>
+                                <Link to='todoList' onClick={this.toggleCollapse.bind(this) }><h2 className='nav-navigation'>TODO List</h2></Link>
+                            </li>
+                            
                             <li className={archivesClassName}>
                                 <Link to='archives' onClick={this.toggleCollapse.bind(this) }><h2 className='nav-navigation'>Archives</h2></Link>
                             </li>

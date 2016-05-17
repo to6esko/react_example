@@ -3,9 +3,10 @@ import {TransitionMotion, spring} from '../react-motion-src/react-motion';
 import presets from '../react-motion-src/presets';
 
 
-const TODOList = React.createClass({
-  getInitialState() {
-    return {
+class TODOList extends React.Component{
+  constructor() {
+    super();
+    this.state = {
       todos: [
         // key is creation date
         {key: 't1', data: {text: 'Board the plane', isDone: false}},
@@ -23,22 +24,22 @@ const TODOList = React.createClass({
       value: '',
       selected: 'all',
     };
-  },
+  }
 
   // logic from todo, unrelated to animation
   handleChange({target: {value}}) {
     this.setState({value});
-  },
+  }
 
   handleSubmit(e) {
     e.preventDefault();
     const newItem = {
       key: 't' + Date.now(),
-      data: {text: this.state.value, isDone: false},
+      data: {text: this.state.value, isDone: false}
     };
     // append at head
     this.setState({todos: [newItem].concat(this.state.todos)});
-  },
+  }
 
   handleDone(doneKey) {
     this.setState({
@@ -47,35 +48,35 @@ const TODOList = React.createClass({
         return key === doneKey
           ? {key: key, data: {text: text, isDone: !isDone}}
           : todo;
-      }),
+      })
     });
-  },
+  }
 
   handleToggleAll() {
     const allNotDone = this.state.todos.every(({data}) => data.isDone);
     this.setState({
       todos: this.state.todos.map(({key, data: {text, isDone}}) => (
         {key: key, data: {text: text, isDone: !allNotDone}}
-      )),
+      ))
     });
-  },
+  }
 
   handleSelect(selected) {
     this.setState({selected});
-  },
+  }
 
   handleClearCompleted() {
     this.setState({todos: this.state.todos.filter(({data}) => !data.isDone)});
-  },
+  }
 
   handleDestroy(date) {
     this.setState({todos: this.state.todos.filter(({key}) => key !== date)});
-  },
+  }
 
   // actual animation-related logic
   getDefaultStyles() {
     return this.state.todos.map(todo => ({...todo, style: {height: 0, opacity: 1}}));
-  },
+  }
 
   getStyles() {
     const {todos, value, selected} = this.state;
@@ -90,25 +91,25 @@ const TODOList = React.createClass({
         ...todo,
         style: {
           height: spring(60, presets.gentle),
-          opacity: spring(1, presets.gentle),
+          opacity: spring(1, presets.gentle)
         }
       };
     });
-  },
+  }
 
   willEnter() {
     return {
       height: 0,
-      opacity: 1,
+      opacity: 1
     };
-  },
+  }
 
   willLeave() {
     return {
       height: spring(0),
       opacity: spring(0),
     };
-  },
+  }
 
   render() {
     const {todos, value, selected} = this.state;
@@ -197,7 +198,7 @@ const TODOList = React.createClass({
         </footer>
       </section>
     );
-  },
-});
+  }
+};
 
 export default TODOList;

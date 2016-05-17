@@ -19,35 +19,40 @@ class Nav extends React.Component {
         const {collapsed} = this.state;
         const homeClassName = location.pathname === '/' ? 'active' : '';
         const todoListClassName = location.pathname.match(/^\/todoList/) ? 'active' : '';
+        const demosClassName = location.pathname.match(/^\/demos/) ? 'active' : '';
         const archivesClassName = location.pathname.match(/^\/archives/) ? 'active' : '';
         const commentsClassName = location.pathname.match(/^\/comments/) ? 'active' : '';
         const navClassName = collapsed ? 'collapse' : '';
-        
+
         return (
             <nav className='navbar navbar-inverse navbar-fixed-top' role='navigation'>
                 <div className='container'>
                     <div className='navbar-header'>
-                        <div className='navbar-toggle' onClick={this.toggleCollapse.bind(this) }>
+                        <div className='navbar-toggle' onClick={()=>this.toggleCollapse() }>
+                            <span className='icon-bar'></span>
+                            <span className='icon-bar'></span>
                             <span className='icon-bar'></span>
                             <span className='icon-bar'></span>
                             <span className='icon-bar'></span>
                         </div>
                     </div>
                     <div className={'navbar-collapse' + navClassName} id='bs-example-navbar-collapse-1'>
-                    <h1 className="name-title">Todor page</h1>
+                        <h1 className="name-title">Todor page</h1>
                         <ul className='nav navbar-nav'>
                             <li className={homeClassName}>
-                                <IndexLink to='/' onClick={this.toggleCollapse.bind(this) }><h2 className='nav-navigation'>Home</h2></IndexLink>
+                                <IndexLink to='/' onClick={()=>this.toggleCollapse() }><h2 className='nav-navigation'>Home</h2></IndexLink>
                             </li>
                             <li className={todoListClassName}>
-                                <Link to='todoList' onClick={this.toggleCollapse.bind(this) }><h2 className='nav-navigation'>TODO List</h2></Link>
+                                <Link to='todoList' onClick={()=>this.toggleCollapse() }><h2 className='nav-navigation'>TODO List</h2></Link>
                             </li>
-                            
+                            <li className={demosClassName}>
+                                <Link to='demos' onClick={()=>this.toggleCollapse() }><h2 className='nav-navigation'>Demos</h2></Link>
+                            </li>
                             <li className={archivesClassName}>
-                                <Link to='archives' onClick={this.toggleCollapse.bind(this) }><h2 className='nav-navigation'>Archives</h2></Link>
+                                <Link to='archives' onClick={()=>this.toggleCollapse() }><h2 className='nav-navigation'>Archives</h2></Link>
                             </li>
                             <li className={commentsClassName}>
-                                <Link to='comments' onClick={this.toggleCollapse.bind(this) }><h2 className='nav-navigation'>Comments</h2></Link>
+                                <Link to='comments' onClick={()=>this.toggleCollapse() }><h2 className='nav-navigation'>Comments</h2></Link>
                             </li>
                         </ul>
                     </div>

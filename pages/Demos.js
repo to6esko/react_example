@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ChatHeads from '../components/ChatHeads';
-
+import SpringRotation from '../components/SpringRotation';
 
 class Demos extends React.Component{
     render(){
@@ -10,7 +10,9 @@ class Demos extends React.Component{
             <h1>Demos</h1>
             <br/>
             <ChatHeads/>
-            </div>
+            <br/>
+                <SpringRotation/>
+            </div>    
         )
     }
 }

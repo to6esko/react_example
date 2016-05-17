@@ -20,25 +20,25 @@ margin: 0;
   }
 
   .ball-0 {
-    background-image: url(0.jpg);
+    background-image: url(./chat/0.jpg);
   }
 
   .ball-1 {
-    background-image: url(1.jpg);
+    background-image: url(./chat/1.jpg);
   }
 
   .ball-2 {
-    background-image: url(2.jpg);
+    background-image: url(./chat/2.jpg);
   }
 
   .ball-3 {
-    background-image: url(3.jpg);
+    background-image: url(./chat/3.jpg);
   }
 
   .ball-4 {
-    background-image: url(4.jpg);
+    background-image: url(./chat/4.jpg);
   }
 
   .ball-5 {
-    background-image: url(5.jpg);
+    background-image: url(./chat/5.jpg);
   }

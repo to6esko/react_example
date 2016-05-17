@@ -10,19 +10,23 @@ class ChatHeads extends React.Component{
   }
 
   componentDidMount() {
-    window.addEventListener('mousemove', this.handleMouseMove.bind(this));
-    window.addEventListener('touchmove', this.handleTouchMove.bind(this));
+    window.addEventListener('mousemove', this.handleMouseMove);
+    window.addEventListener('touchmove', this.handleTouchMove);
+  }
+  componentWillUnmount(){
+    window.removeEventListener('mousemove', this.handleMouseMove);
+    window.removeEventListener('touchmove', this.handleTouchMove);
   }
   
-  handleMouseMove({pageX: x, pageY: y}) {
+  handleMouseMove = ({pageX: x, pageY: y}) => {
     this.setState({x, y});
   }
 
-  handleTouchMove({touches}) {
+  handleTouchMove = ({touches}) => {
     this.handleMouseMove(touches[0]);
   }
 
-  getStyles(prevStyles) {
+  getStyles = (prevStyles) => {
     // `prevStyles` is the interpolated value of the last tick
     const endValue = prevStyles.map((_, i) => {
       return i === 0

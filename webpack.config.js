@@ -15,7 +15,7 @@ module.exports={
                 exclude:/node_modules/,
                 loader:'babel',
                 query:{
-                    plugins: ["transform-object-rest-spread","transform-flow-strip-types"],
+                    plugins: ["transform-object-rest-spread","transform-flow-strip-types","transform-class-properties"],
                     presets:['es2015','react','stage-2']
                 }
             }

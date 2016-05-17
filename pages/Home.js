@@ -28,9 +28,10 @@ class Home extends React.Component {
                 <div className='row'>
                     <div className='col-lg-12'>
                         <div className='well text-center'>
-                        <hr/>
+                        
                         <h1>Home</h1>
                             {randomAd}
+                            <hr/>
                         </div>
                     </div>
                 </div>

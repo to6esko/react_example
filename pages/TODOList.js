@@ -117,6 +117,7 @@ const TODOList = React.createClass({
       <section className="todoapp">
         <header className="header">
           <h1>todos</h1>
+          <hr/>
           <form onSubmit={this.handleSubmit}>
             <input
               autoFocus={true}

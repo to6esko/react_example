@@ -36,7 +36,7 @@ class SpringRotation extends React.Component {
     this.handleMouseDown();
   }
   handleChange = (type, {target}) => {
-  var state = this.state;
+  let state = this.state;
   state[type] = target.value;
   this.setState(state);
   }
@@ -46,7 +46,7 @@ let {stiffness, damping} = this.state;
 
     return (
       <div>
-        <button
+        <button className="btn btn-spring"
           onMouseDown={()=>this.handleMouseDown()}
           onTouchStart={()=>this.handleTouchStart()}>
           Run animation

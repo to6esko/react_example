@@ -1,0 +1,23 @@
+*{
+margin: 0;
+padding:0;
+  }
+.block{
+    display: block;
+    position: absolute;
+    background-color: #d0d0d0;
+    width:350px;
+    height: 150px;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.welcome{
+    position: relative;
+    text-align: center;
+    text-shadow: 5px black;
+    color: black;
+    margin: 15px;
+    margin-top: 55px;
+    font-family: fantasy;
+    text-shadow: 2px 2px #FF0000;
+}

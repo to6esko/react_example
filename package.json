@@ -27,7 +27,6 @@
     "react-motion": "^0.4",
     "jquery":"*",
     "bootstrap-less":"*",
-    "react-tools":"*",
     "lodash.range":"*",
     "babel-cli": "^6.8.0",
     "babel-plugin-lodash": "^3.1.4",

@@ -1,6 +1,6 @@
 import React from 'react';
 import Article from "../components/Article";
-
+import Welcome from "../components/Welcome";
 
 
 class Home extends React.Component {
@@ -33,9 +33,10 @@ class Home extends React.Component {
                             {randomAd}
                             <hr/>
                         </div>
+                        <Welcome/>
                     </div>
                 </div>
-                <div className='row'>{Articles}</div>
+                
             </div>
         );
     }

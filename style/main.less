@@ -174,9 +174,9 @@ ul li {
   position: static;
     border: @bord;
     margin: 5px;
-    padding: 5px;
-    width: 80%;
-    height: auto;
+    padding: 20px;
+    width: 100%;
+    height: 200px;
     
     zoom:1;
 }
@@ -189,20 +189,20 @@ ul li {
     text-align: center;
     padding: 1% 1% 0 2%;
     word-break: break-word;
-    zoom: 1;
+    margin-bottom:-10%;
 }
 
 
 .text-content{
            position: relative;
-    top: 33px;
+           float:right;
+    top: 50%;
     display: inline-block;
     width: 80%;
     min-height: 100px;
-    margin-bottom: 4%;
-    margin-top: -2%;
+    margin-top: -38%;
     border: @bord;
-    text-align: left;
+    text-align: -webkit-left;
     padding: 1% 1% 5% 0%;
 
     word-break: break-word;
@@ -240,10 +240,8 @@ ul li {
 }
 .commentForm {
   position: relative;
-  width: 32%;
+  width: 70%;
   height: 450px;
-  left: 250px;
-  right:50px;
   bottom: 50px;
   margin: 100px;
   border:@bord;
@@ -307,10 +305,19 @@ span{
 
 
 img{
-        width: 60%;
-    padding-top: 10%;
-    display: -webkit-inline-box;
+    position:relative;
+        width: 50px;
+        height:50px;
+    display:block;
+    padding-left:15px;
+    
 }
 .btn-delete{
-    padding-top:40px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    width: 55px;
+    height: 25px;
+    padding: 5px;
+    background-color: gainsboro;
 }

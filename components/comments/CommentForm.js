@@ -28,7 +28,19 @@ class CommentForm extends React.Component {
 
     handleFile(event){
         let filename = event.target.value;
-        
+        let i, file = {};
+        for (i = 0; i <= filename.lenght; i++){
+            
+            if (!file.type.match('image.*')) {
+                continue;
+            } else {
+                file.push(filename[i]);
+                console.log(file);
+            }
+        }
+
+
+
         filename = filename.substring(filename.lastIndexOf('\\') + 1);
         console.log(filename);
         this.setState({
@@ -44,7 +56,7 @@ class CommentForm extends React.Component {
 
                 <input className='your-name' type='text' placeholder='Your name' value={this.state.author} onChange={this.handleAuthorChange.bind(this) }/>
                 <textarea className='form-control' type='text' placeholder='Say something...' value={this.state.text} onChange={this.handleTextChange.bind(this) }/>
-                <input className='btn-default' type='file' onChange={this.handleFile.bind(this)} />
+                <input className='btn-default' type='file' name="files[]" onChange={this.handleFile.bind(this) } multiple/>
                 <input className='btn-submit' type='submit' value='Post'/>
             </form>
         );

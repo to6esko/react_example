@@ -51,8 +51,8 @@ class ChatHeads extends React.Component{
                 key={i}
                 className={`demo1-ball ball-${i}`}
                 style={{
-                  WebkitTransform: `translate3d(${x - 25}px, ${y - 25}px, 0)`,
-                  transform: `translate3d(${x - 25}px, ${y - 25}px, 0)`,
+                  WebkitTransform: `translate3d(${x - 25}px, ${y -750}px, 0)`,
+                  transform: `translate3d(${x - 25}px, ${y - 750}px, 0)`,
                   zIndex: balls.length - i,
                 }} />
             )}

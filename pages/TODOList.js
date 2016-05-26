@@ -52,7 +52,7 @@ class TODOList extends React.Component{
     });
   }
 
-  handleToggleAll = () => {
+  handleToggleAll=() => {
     const allNotDone = this.state.todos.every(({data}) => data.isDone);
     this.setState({
       todos: this.state.todos.map(({key, data: {text, isDone}}) => (

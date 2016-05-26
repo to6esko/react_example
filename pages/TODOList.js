@@ -27,11 +27,11 @@ class TODOList extends React.Component{
   }
 
   // logic from todo, unrelated to animation
-  handleChange({target: {value}}) {
+  handleChange = ({target: {value}}) => {
     this.setState({value});
   }
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
     const newItem = {
       key: 't' + Date.now(),
@@ -41,7 +41,7 @@ class TODOList extends React.Component{
     this.setState({todos: [newItem].concat(this.state.todos)});
   }
 
-  handleDone(doneKey) {
+  handleDone = (doneKey) => {
     this.setState({
       todos: this.state.todos.map(todo => {
         const {key, data: {text, isDone}} = todo;
@@ -52,7 +52,7 @@ class TODOList extends React.Component{
     });
   }
 
-  handleToggleAll() {
+  handleToggleAll = () => {
     const allNotDone = this.state.todos.every(({data}) => data.isDone);
     this.setState({
       todos: this.state.todos.map(({key, data: {text, isDone}}) => (
@@ -61,24 +61,24 @@ class TODOList extends React.Component{
     });
   }
 
-  handleSelect(selected) {
+  handleSelect = (selected) => {
     this.setState({selected});
   }
 
-  handleClearCompleted() {
+  handleClearCompleted = () => {
     this.setState({todos: this.state.todos.filter(({data}) => !data.isDone)});
   }
 
-  handleDestroy(date) {
+  handleDestroy = (date) => {
     this.setState({todos: this.state.todos.filter(({key}) => key !== date)});
   }
 
   // actual animation-related logic
-  getDefaultStyles() {
+  getDefaultStyles = () => {
     return this.state.todos.map(todo => ({...todo, style: {height: 0, opacity: 1}}));
   }
 
-  getStyles() {
+  getStyles = () => {
     const {todos, value, selected} = this.state;
     return todos.filter(({data: {isDone, text}}) => {
       return text.toUpperCase().indexOf(value.toUpperCase()) >= 0 &&

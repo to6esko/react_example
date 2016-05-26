@@ -21,3 +21,12 @@ padding:0;
     font-family: fantasy;
     text-shadow: 2px 2px #FF0000;
 }
+
+.blockContent{
+    display: inline-block;
+    position: relative;
+    background-color: red;
+    width:50px;
+    height: 50px;
+    margin: 5px;
+}
